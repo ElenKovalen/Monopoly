@@ -2,8 +2,8 @@ import { Player } from "./Player.mjs";
 import { Deck } from "./Deck.mjs";
 
 class Game {
-    constructor(nCards, nPlayers) {
-        this.deck = new Deck(nCards);
+    constructor(nPlayers) {
+        this.deck = new Deck();
         this.players = [];
               
         for (let i = 0; i < nPlayers; i++) {
@@ -22,13 +22,7 @@ class Game {
     }
 
     judge() {
-        let winner = this.players[0]; 
-        this.players.forEach(p => {
-            if (winner.cards[0].rank < p.cards[0].rank) {
-                winner = p;
-            }
-        });
-        return winner;
+        return this.players.reduce((prev, current) => prev.bestCard.value > current.bestCard.value ? prev : current);
     }
 
     printResults(winner) {
@@ -42,4 +36,4 @@ class Game {
     }
 }
 
-new Game(40, 4).play();
+new Game(4).play();
