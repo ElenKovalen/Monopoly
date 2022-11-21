@@ -2,8 +2,8 @@ import { Player } from "./Player.mjs";
 import { Deck } from "./Deck.mjs";
 
 class Game {
-    constructor(nCards, nPlayers) {
-        this.deck = new Deck(nCards);
+    constructor(nPlayers) {
+        this.deck = new Deck();
         this.players = [];
               
         for (let i = 0; i < nPlayers; i++) {
@@ -42,4 +42,4 @@ class Game {
     }
 }
 
-new Game(40, 4).play();
+new Game(4).play();
