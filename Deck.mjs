@@ -13,7 +13,7 @@ const deckParams = {
         {value:1, color: "brawn", name: "brawn"},
         {value:2, color: "mint", name: "mint"},
         {value:4, color: "blue", name: "blue"},
-        {value:1, color: "skyblue", name: "skyblue"},
+        {value:1, color: "skyBlue", name: "skyblue"},
         {value:2, color: "purple", name: "purple"},
         {value:2, color: "orange", name: "orange"},
         {value:3, color: "red", name: "red"},
