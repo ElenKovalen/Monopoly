@@ -46,17 +46,8 @@ export class Deck {
         });
 
         deckParams.properties.forEach(({value, color}) => {
-            let set;
-            let n;
-
-            if (typeof(color) === "string") {
-                set = propertySets[color];
-                n = propertySets[color].length;
-            } else {
-                set = color.map(c => propertySets[c]);
-                n = 1;
-            }
-            this.cards = [...this.cards, ...Array.from({length: n}, () => new PropertyCard(value, color, set))];
+            const n = typeof(color) === "string" ? propertySets[color].length : 1;
+            this.cards = [...this.cards, ...Array.from({length: n}, () => new PropertyCard(value, color))];
         });
 
         deckParams.actions.forEach(({v, n}) => {

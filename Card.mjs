@@ -19,12 +19,13 @@ export class ActionCard extends Card{
 }
 
 export class PropertyCard extends Card {
-    constructor(value, color, name, set, isWild = false) {
+    constructor(value, color, name, isWild = false) {
         super(value);
         this.color = color;
         this.name = name;
-        this.set = set;
         this.isWild = isWild;
+
+        this.set = typeof(color) === "string" ? propertySets[color] : color.map(c => propertySets[c]);
     }
 }
 
@@ -41,4 +42,4 @@ export const propertySets = {
     black: [1, 2, 3, 4]
 };
 
-const brown = new PropertyCard(1, "brown", "Old Kent Road" [1, 2]);
+const brown = new PropertyCard(1, "brown", "Old Kent Road");
