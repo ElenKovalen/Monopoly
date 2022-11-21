@@ -62,31 +62,6 @@ export class Deck {
         deckParams.actions.forEach(({v, n}) => {
             this.cards = [...this.cards, ...Array.from({length: n}, () => new ActionCard(v))];
         });
-
-        console.log(this.cards);
-        // for (let i = 0; i <= 6; i++) {
-        //     this.cards.push(new MoneyCard(1));
-        //     this.cards.push(new MoneyCard(2));
-        //     this.cards.push(new MoneyCard(3));
-        //     this.cards.push(new MoneyCard(4));
-        //     this.cards.push(new MoneyCard(5));
-            
-        //     if (this.cards.filter(c = c.value == 10).length < 1) {
-        //          this.cards.push(new MoneyCard(10));
-        //     }
-
-        //     if (this.cards.filter(c = c.value == 5).length < 2) {
-        //         this.cards.push(new MoneyCard(5));
-        //    }
-
-        //    if (this.cards.filter(c = c.value == 4).length < 3) {
-        //          this.cards.push(new MoneyCard(4));
-        //     }
-
-        //     if (this.cards.filter(c = c.value == 3).length < 3) {
-        //         this.cards.push(new MoneyCard(3));
-        //    }
-        // }
     }
 
     draw() {
