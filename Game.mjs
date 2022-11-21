@@ -22,13 +22,7 @@ class Game {
     }
 
     judge() {
-        let winner = this.players[0]; 
-        this.players.forEach(p => {
-            if (winner.cards[0].rank < p.cards[0].rank) {
-                winner = p;
-            }
-        });
-        return winner;
+        return this.players.reduce((prev, current) => prev.bestCard.value > current.bestCard.value ? prev : current);
     }
 
     printResults(winner) {
