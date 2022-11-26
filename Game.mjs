@@ -14,15 +14,14 @@ class Game {
 
     deal() {
         this.players.forEach(p => {
-            p.cards = []; 
             for (let i = 0; i < 5; i++) {
-               p.cards.push(this.deck.draw());
+               p.poketCards.push(this.deck.draw());
             }
         }); 
     }
 
     judge() {
-        return this.players.reduce((prev, current) => prev.bestCard.value > current.bestCard.value ? prev : current);
+        return this.players.reduce((prev, current) => prev.tableCards[0].value > current.tableCards[0].value ? prev : current);
     }
 
     printResults(winner) {
@@ -31,6 +30,7 @@ class Game {
 
     play() {
         this.deal();
+        this.players.forEach(p => p.play());
         this.judge();
         this.printResults(this.judge());
     }
