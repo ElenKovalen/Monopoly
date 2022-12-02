@@ -10,6 +10,9 @@ export class Player {
     }
 
     play() {
-        this.tableCards.push(this.poketCards.pop());
+        const nCards = Math.round(Math.random() * 3);
+        for (i = 0; i < nCards; i++) {
+            this.tableCards.push(this.poketCards.pop());
+        }
     }
 }

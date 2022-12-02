@@ -15,7 +15,7 @@ class Game {
     deal() {
         this.players.forEach(p => {
             for (let i = 0; i < 5; i++) {
-               p.poketCards.push(this.deck.draw());
+               p.poketCards.push(this.deck.drawCard());
             }
         }); 
     }
@@ -28,12 +28,43 @@ class Game {
         console.log(winner);
     }
 
-    play() {
+    run() {
         this.deal();
-        this.players.forEach(p => p.play());
-        this.judge();
-        this.printResults(this.judge());
+        let isFirst = true;
+
+        for(const p of players) {
+            if (!isFirst) {
+                this.dealTwoCardsToPlayer(p);
+            }
+            p.play();
+            const winner = this.judge();
+            if (winner) {
+                this.printResults(winner);
+                break;
+            }
+            
+            isFirst = false;
+        }
     }
 }
 
-new Game(4).play();
+new Game(4).run();
+
+// const arr = [0, 1, 2];
+
+// for (let i = 0; i < arr.length; i++) {
+//     // arr[i]
+// }
+
+// let ii = 0;
+// for (const e of arr) {
+//     // e
+//     // my logic
+//     ii++;
+// }
+
+// let iii = 0;
+// while(iii < arr.length) {
+//     // arr[i]
+//     iii++;
+// }
